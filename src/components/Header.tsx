@@ -144,11 +144,12 @@ export default function Header() {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="flex items-center justify-center rounded-full border border-slate-300 dark:border-[#28395E]/30 p-2 text-slate-600 dark:text-[#28395E] transition-colors hover:bg-slate-50 dark:hover:bg-[#28395E]/5"
+            className="flex items-center gap-2 rounded-full border border-slate-300 dark:border-[#28395E]/30 px-3 py-1.5 text-sm font-medium text-slate-600 dark:text-[#28395E] transition-colors hover:bg-slate-50 dark:hover:bg-[#28395E]/5 hover:text-sky-700 dark:hover:text-[#28395E]"
             aria-label="Toggle theme"
             title={theme === "modern" ? "Switch to Original Theme" : "Switch to Modern Theme"}
           >
             <Palette className="h-4 w-4" />
+            <span className="hidden sm:inline">{theme === "modern" ? "Modern" : "Original"}</span>
           </button>
 
           {/* Language Toggle */}
@@ -177,7 +178,7 @@ export default function Header() {
           <button
             id="mobile-menu-toggle"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="flex items-center justify-center rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 lg:hidden"
+            className="flex items-center justify-center rounded-lg p-2 text-slate-600 dark:text-[#28395E] transition-colors hover:bg-slate-100 dark:hover:bg-[#28395E]/10 lg:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? (
