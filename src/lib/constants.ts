@@ -1,3 +1,10 @@
+import galleryConstruction from "../assets/images/gallery_construction.jpg";
+import galleryLogistics from "../assets/images/gallery_logistics.jpg";
+import galleryHealthcare from "../assets/images/gallery_healthcare.jpg";
+import galleryManufacturing from "../assets/images/gallery_manufacturing.jpg";
+import galleryRetail from "../assets/images/gallery_retail.jpg";
+import galleryTrading from "../assets/images/gallery_trading.jpg";
+
 export const COMPANY = {
   name: "Premier Management Consulting",
   shortName: "PMC",
@@ -39,7 +46,7 @@ export const NAV_LINKS = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Industries", href: "#industries" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -95,16 +102,31 @@ export const SERVICES = [
   },
 ] as const;
 
-export const INDUSTRIES = [
-  { name: "Automotive", icon: "Car" as const },
-  { name: "Agriculture & Farming", icon: "Sprout" as const },
-  { name: "Construction & Property", icon: "Building2" as const },
-  { name: "Freight & Logistics", icon: "Truck" as const },
-  { name: "Healthcare", icon: "HeartPulse" as const },
-  { name: "Hospitality", icon: "Hotel" as const },
-  { name: "Manufacturing", icon: "Factory" as const },
-  { name: "Retail & Distribution", icon: "ShoppingBag" as const },
-  { name: "General Services & Trading", icon: "Briefcase" as const },
+export const PROJECTS = [
+  { 
+    name: "Construction, Developer", 
+    image: galleryConstruction
+  },
+  { 
+    name: "Freight Forwarding, Expeditions & Logistics", 
+    image: galleryLogistics
+  },
+  { 
+    name: "Healthcare", 
+    image: galleryHealthcare
+  },
+  { 
+    name: "Manufacturing", 
+    image: galleryManufacturing
+  },
+  { 
+    name: "Retail, Wholesale & Distribution", 
+    image: galleryRetail
+  },
+  { 
+    name: "Trading", 
+    image: galleryTrading
+  },
 ] as const;
 
 export const STATS = [
