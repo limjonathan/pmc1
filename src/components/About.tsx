@@ -53,7 +53,8 @@ export default function About() {
               className="w-full rounded-2xl object-cover shadow-md aspect-video mb-8"
             />
             <p className="text-lg leading-relaxed text-slate-600">
-              PMC works across a broad range of business disciplines to address
+              We are an expert consulting firm based in Surabaya specializing in
+              management accounting. PMC works across a broad range of business disciplines to address
               critical issues, helping clients improve key organizational
               components, leverage technology, and strengthen their market
               position. Our team of service professionals and industry-specific

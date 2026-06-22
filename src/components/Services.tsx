@@ -37,8 +37,7 @@ export default function Services() {
             From Ledger to Strategy
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Comprehensive financial and management solutions designed to scale
-            with your business.
+            Indonesia can be a challenging place to do business. At PMC, our services are designed to support your business from inception through to exit and everything in between.
           </p>
         </motion.div>
 

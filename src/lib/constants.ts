@@ -75,8 +75,9 @@ export const SERVICES = [
     items: [
       "Outsourcing Accounting Service",
       "Monthly Accounting Supervisory",
-      "Financial Statement Compilation, Review & Analysis",
-      "Other Management Accounting Services",
+      "Financial Statement Compilation",
+      "Financial Statement Review",
+      "Financial Statement Analysis",
     ],
   },
   {
@@ -84,7 +85,7 @@ export const SERVICES = [
     icon: "Lightbulb" as const,
     items: [
       "Accounting & Management Information System Design",
-      "Accounting System Check-up",
+      "Accounting System Check Up",
     ],
   },
   {
@@ -107,7 +108,8 @@ export const INDUSTRIES = [
 ] as const;
 
 export const STATS = [
-  { value: 35, suffix: "+", label: "Years Experience" },
-  { value: 9, suffix: "", label: "Industry Sectors" },
-  { value: 3, suffix: "", label: "Core Disciplines" },
+  { value: 291, suffix: "", label: "Happy Clients" },
+  { value: 156, suffix: "", label: "Our Project" },
+  { value: 0, suffix: "", label: "Team Members" },
+  { value: 41, suffix: "", label: "Years of Experiences" },
 ] as const;
