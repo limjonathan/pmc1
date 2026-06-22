@@ -79,11 +79,12 @@ export default function Header() {
   );
 
   return (
-    <motion.header
-      id="site-header"
-      className="fixed top-0 right-0 left-0 z-50 border-b border-slate-200/50 bg-white/80 backdrop-blur-xl"
-      style={{ boxShadow: headerShadow }}
-    >
+    <>
+      <motion.header
+        id="site-header"
+        className="fixed top-0 right-0 left-0 z-40 border-b border-slate-200/50 bg-white/80 backdrop-blur-xl"
+        style={{ boxShadow: headerShadow }}
+      >
       <motion.nav
         className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8"
         style={{ paddingTop: headerPadding, paddingBottom: headerPadding }}
@@ -154,14 +155,14 @@ export default function Header() {
             )}
           </button>
         </div>
-      </motion.nav>
+      </motion.header>
 
       {/* Mobile Overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             id="mobile-menu-overlay"
-            className="fixed inset-0 top-0 z-40 flex flex-col items-center justify-center bg-white/95 backdrop-blur-2xl lg:hidden"
+            className="fixed inset-0 top-0 z-50 flex flex-col items-center justify-center bg-white/95 backdrop-blur-2xl lg:hidden"
             variants={overlayVariants}
             initial="hidden"
             animate="visible"
@@ -219,6 +220,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
