@@ -6,6 +6,7 @@ import {
   staggerContainer,
 } from "../hooks/useScrollReveal";
 import { useAnimatedCounter } from "../hooks/useAnimatedCounter";
+import heroBg from "../assets/images/hero-bg.jpg";
 
 function StatItem({
   value,
@@ -20,11 +21,11 @@ function StatItem({
 
   return (
     <div className="flex flex-col items-center gap-1">
-      <span className="text-3xl font-bold text-white">
+      <span className="text-3xl font-bold text-slate-900">
         <motion.span ref={ref}>{display}</motion.span>
         {suffix}
       </span>
-      <span className="text-sm text-zinc-500">{label}</span>
+      <span className="text-sm text-slate-600">{label}</span>
     </div>
   );
 }
@@ -42,15 +43,21 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center bg-slate-950 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-slate-50 overflow-hidden"
     >
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-multiply"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+
       {/* Dot-grid pattern overlay */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-20"
+        className="pointer-events-none absolute inset-0 opacity-40 z-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(161,161,170,0.5) 1px, transparent 1px)",
+            "radial-gradient(circle, rgba(15, 23, 42, 0.1) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -63,7 +70,7 @@ export default function Hero() {
       >
         {/* Badge */}
         <motion.div variants={revealVariants}>
-          <span className="inline-block rounded-full border border-zinc-700 px-4 py-1.5 text-sm text-zinc-400">
+          <span className="inline-block rounded-full border border-slate-300 bg-white/50 backdrop-blur-sm px-4 py-1.5 text-sm text-slate-600">
             Surabaya, Indonesia · Est. 1990
           </span>
         </motion.div>
@@ -71,11 +78,11 @@ export default function Hero() {
         {/* Main Heading */}
         <motion.h1
           variants={revealVariants}
-          className="mx-auto mt-8 max-w-4xl text-5xl font-bold tracking-tight text-white lg:text-7xl"
-          style={{ fontFamily: "Outfit, sans-serif" }}
+          className="mx-auto mt-8 max-w-4xl text-5xl font-bold tracking-tight text-slate-900 lg:text-7xl"
+          style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
         >
           {beforeHighlight}
-          <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="gradient-text">
             {highlight}
           </span>
         </motion.h1>
@@ -83,7 +90,7 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           variants={revealVariants}
-          className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400 lg:text-xl"
+          className="mx-auto mt-6 max-w-2xl text-lg text-slate-600 lg:text-xl"
         >
           {COMPANY.subtitle}
         </motion.p>
@@ -98,14 +105,14 @@ export default function Hero() {
             href={CONTACT.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl bg-emerald-500 px-8 py-4 font-medium text-white transition-colors hover:bg-emerald-400"
+            className="rounded-xl bg-sky-600 px-8 py-4 font-medium text-white shadow-lg shadow-sky-600/20 transition-all hover:bg-sky-500 hover:-translate-y-1"
           >
             Schedule a Consultation
           </a>
           <a
             id="hero-cta-secondary"
             href="#services"
-            className="rounded-xl border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white"
+            className="rounded-xl border border-slate-300 bg-white/50 backdrop-blur-sm px-8 py-4 text-slate-700 transition-all hover:border-slate-400 hover:bg-white hover:text-slate-900 hover:-translate-y-1 shadow-sm"
           >
             Explore Services
           </a>
@@ -114,7 +121,7 @@ export default function Hero() {
         {/* Stats Row */}
         <motion.div
           variants={revealVariants}
-          className="mx-auto mt-20 flex max-w-lg items-center justify-center divide-x divide-zinc-800"
+          className="mx-auto mt-20 flex max-w-lg items-center justify-center divide-x divide-slate-300"
         >
           {STATS.map((stat) => (
             <div key={stat.label} className="flex-1 px-6">

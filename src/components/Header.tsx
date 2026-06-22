@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, type Variants } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { NAV_LINKS, CONTACT } from "../lib/constants";
+import logoWide from "../assets/images/logo-wide.png";
 
 const navItemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -80,7 +81,7 @@ export default function Header() {
   return (
     <motion.header
       id="site-header"
-      className="fixed top-0 right-0 left-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl"
+      className="fixed top-0 right-0 left-0 z-50 border-b border-slate-200/50 bg-white/80 backdrop-blur-xl"
       style={{ boxShadow: headerShadow }}
     >
       <motion.nav
@@ -91,16 +92,10 @@ export default function Header() {
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
-          className="group flex items-center gap-2.5"
+          className="group flex items-center"
           id="header-logo"
         >
-          <span className="font-outfit text-2xl font-bold tracking-tight text-emerald-400">
-            PMC
-          </span>
-          <span className="hidden h-1 w-1 rounded-full bg-zinc-600 sm:inline-block" />
-          <span className="hidden font-inter text-sm font-medium text-zinc-400 transition-colors group-hover:text-zinc-300 sm:inline-block">
-            Premier Management Consulting
-          </span>
+          <img src={logoWide} alt="Premier Management Consulting" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         </a>
 
         {/* Desktop Navigation */}
@@ -113,19 +108,19 @@ export default function Header() {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                   activeSection === link.href
-                    ? "text-emerald-400"
-                    : "text-zinc-400 hover:text-emerald-400"
+                    ? "text-sky-700"
+                    : "text-slate-600 hover:text-sky-700"
                 }`}
               >
                 {link.label}
                 {/* Underline indicator */}
                 <span
-                  className={`absolute bottom-0 left-1/2 h-px -translate-x-1/2 bg-emerald-400 transition-all duration-300 ${
+                  className={`absolute bottom-0 left-1/2 h-px -translate-x-1/2 bg-sky-700 transition-all duration-300 ${
                     activeSection === link.href ? "w-4/5" : "w-0"
                   }`}
                 />
                 {/* Hover underline */}
-                <span className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-emerald-400/50 transition-all duration-300 group-hover:w-4/5 hover:w-4/5" />
+                <span className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-sky-700/50 transition-all duration-300 group-hover:w-4/5 hover:w-4/5" />
               </a>
             </li>
           ))}
@@ -139,7 +134,7 @@ export default function Header() {
             href={CONTACT.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-emerald-500 px-5 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/20 lg:inline-flex"
+            className="hidden items-center gap-2 rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-500 hover:shadow-lg hover:shadow-sky-500/20 lg:inline-flex"
           >
             <MessageCircle className="h-4 w-4" />
             Get in Touch
@@ -149,7 +144,7 @@ export default function Header() {
           <button
             id="mobile-menu-toggle"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="flex items-center justify-center rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/5 hover:text-white lg:hidden"
+            className="flex items-center justify-center rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 lg:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? (
@@ -166,7 +161,7 @@ export default function Header() {
         {mobileOpen && (
           <motion.div
             id="mobile-menu-overlay"
-            className="fixed inset-0 top-0 z-40 flex flex-col items-center justify-center bg-slate-950/95 backdrop-blur-2xl lg:hidden"
+            className="fixed inset-0 top-0 z-40 flex flex-col items-center justify-center bg-white/95 backdrop-blur-2xl lg:hidden"
             variants={overlayVariants}
             initial="hidden"
             animate="visible"
@@ -176,7 +171,7 @@ export default function Header() {
             <button
               id="mobile-menu-close"
               onClick={() => setMobileOpen(false)}
-              className="absolute top-5 right-6 rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/5 hover:text-white"
+              className="absolute top-5 right-6 rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
               aria-label="Close menu"
             >
               <X className="h-7 w-7" />
@@ -194,10 +189,10 @@ export default function Header() {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className={`font-outfit text-3xl font-semibold transition-colors duration-200 ${
+                  className={`font-display text-3xl font-semibold transition-colors duration-200 ${
                     activeSection === link.href
-                      ? "text-emerald-400"
-                      : "text-zinc-300 hover:text-emerald-400"
+                      ? "text-sky-700"
+                      : "text-slate-700 hover:text-sky-700"
                   }`}
                 >
                   {link.label}
@@ -215,7 +210,7 @@ export default function Header() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-8 py-3 text-base font-semibold text-white transition-all duration-200 hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/20"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-sky-600 px-8 py-3 text-base font-semibold text-white transition-all duration-200 hover:bg-sky-500 hover:shadow-lg hover:shadow-sky-500/20"
               >
                 <MessageCircle className="h-5 w-5" />
                 Get in Touch

@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Outfit", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
 
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-cyan-400: #22d3ee;
+  --color-sky-500: #0ea5e9;
+  --color-sky-600: #0284c7;
+  --color-sky-700: #0369a1;
 
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
   --color-slate-950: #020617;
-  --color-zinc-900: #18181b;
-  --color-zinc-800: #27272a;
-  --color-zinc-700: #3f3f46;
-  --color-zinc-500: #71717a;
-  --color-zinc-400: #a1a1aa;
-  --color-zinc-300: #d4d4d8;
 }
 
 /* ── Base Styles ── */
@@ -26,8 +27,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-slate-950);
-  color: var(--color-zinc-300);
+  background-color: var(--color-slate-50);
+  color: var(--color-slate-900);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -43,16 +44,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-slate-950);
+  background: var(--color-slate-50);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-zinc-700);
+  background: var(--color-slate-200);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-zinc-500);
+  background: var(--color-slate-600);
 }
 
 /* ── Dot Grid Background ── */
@@ -60,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 .dot-grid {
   background-image: radial-gradient(
     circle,
-    rgba(161, 161, 170, 0.15) 1px,
+    rgba(15, 23, 42, 0.1) 1px,
     transparent 1px
   );
   background-size: 32px 32px;
@@ -69,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Gradient Text Utility ── */
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-emerald-400), var(--color-cyan-400));
+  background: linear-gradient(135deg, var(--color-sky-700), var(--color-sky-500));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -78,8 +79,8 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Pulse Glow ── */
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-  50% { box-shadow: 0 0 20px 8px rgba(16, 185, 129, 0.15); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(3, 105, 161, 0.4); }
+  50% { box-shadow: 0 0 20px 8px rgba(3, 105, 161, 0.15); }
 }
 
 .pulse-glow {

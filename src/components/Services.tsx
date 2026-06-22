@@ -19,7 +19,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative bg-zinc-900/30 py-24 lg:py-32"
+      className="relative bg-slate-50 py-24 lg:py-32"
     >
       <motion.div
         ref={ref}
@@ -30,13 +30,13 @@ export default function Services() {
       >
         {/* Section header */}
         <motion.div variants={revealVariants} className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-400">
+          <p className="text-sm font-semibold uppercase tracking-widest text-sky-700">
             OUR SERVICES
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-white lg:text-5xl font-[Outfit]">
+          <h2 className="mt-4 text-3xl font-bold text-slate-900 lg:text-5xl font-display">
             From Ledger to Strategy
           </h2>
-          <p className="mt-4 text-lg text-zinc-400">
+          <p className="mt-4 text-lg text-slate-600">
             Comprehensive financial and management solutions designed to scale
             with your business.
           </p>
@@ -52,25 +52,25 @@ export default function Services() {
                 key={service.category}
                 variants={revealVariants}
                 id={`service-${service.icon.toLowerCase()}`}
-                className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-slate-950 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/5"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/40 shadow-sm hover:shadow-lg hover:shadow-sky-500/5"
               >
                 {/* Hover gradient glow */}
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/0 to-transparent transition-all duration-500 group-hover:via-emerald-500/60"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-500/0 to-transparent transition-all duration-500 group-hover:via-sky-500/60"
                 />
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-500/0 to-transparent transition-all duration-500 group-hover:from-emerald-500/[0.06]"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-sky-500/0 to-transparent transition-all duration-500 group-hover:from-sky-500/[0.06]"
                 />
 
                 {/* Icon */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10">
-                  {Icon && <Icon className="h-6 w-6 text-emerald-400" />}
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-600/10">
+                  {Icon && <Icon className="h-6 w-6 text-sky-700" />}
                 </div>
 
                 {/* Category title */}
-                <h3 className="mt-6 text-xl font-semibold text-white">
+                <h3 className="mt-6 text-xl font-semibold text-slate-900">
                   {service.category}
                 </h3>
 
@@ -79,9 +79,9 @@ export default function Services() {
                   {service.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-3 text-sm text-zinc-400"
+                      className="flex items-start gap-3 text-sm text-slate-600"
                     >
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-sky-700" />
                       <span>{item}</span>
                     </li>
                   ))}

@@ -46,7 +46,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-gradient-to-b from-slate-950 to-zinc-900 py-24 lg:py-32"
+      className="bg-gradient-to-b from-slate-50 to-white py-24 lg:py-32"
     >
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         <motion.div
@@ -58,7 +58,7 @@ export default function Contact() {
           {/* Label */}
           <motion.p
             variants={revealVariants}
-            className="text-center text-sm font-semibold uppercase tracking-widest text-emerald-400"
+            className="text-center text-sm font-semibold uppercase tracking-widest text-sky-700"
           >
             Get in Touch
           </motion.p>
@@ -66,7 +66,7 @@ export default function Contact() {
           {/* Heading */}
           <motion.h2
             variants={revealVariants}
-            className="mt-4 text-center text-3xl font-bold text-white lg:text-5xl"
+            className="mt-4 text-center text-3xl font-bold text-slate-900 lg:text-5xl"
           >
             Let&apos;s Build Your Financial Infrastructure
           </motion.h2>
@@ -74,7 +74,7 @@ export default function Contact() {
           {/* Subtitle */}
           <motion.p
             variants={revealVariants}
-            className="mt-4 text-center text-lg text-zinc-400"
+            className="mt-4 text-center text-lg text-slate-600"
           >
             Ready to transform your financial systems? Reach out to our team in
             Surabaya.
@@ -99,16 +99,16 @@ export default function Contact() {
                       : undefined
                   }
                   variants={revealVariants}
-                  className="flex items-start gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:border-emerald-500/40 hover:bg-zinc-800/50"
+                  className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-500/40 hover:bg-slate-50 hover:shadow-md hover:-translate-y-1"
                 >
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10">
-                    <Icon className="size-5 text-emerald-400" />
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-sky-600/10">
+                    <Icon className="size-5 text-sky-700" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-zinc-400">
+                    <p className="text-sm font-medium text-slate-600">
                       {card.title}
                     </p>
-                    <p className="mt-1 font-medium text-white">{card.value}</p>
+                    <p className="mt-1 font-medium text-slate-900">{card.value}</p>
                   </div>
                 </motion.a>
               );
@@ -118,7 +118,7 @@ export default function Contact() {
           {/* Office Hours */}
           <motion.div
             variants={revealVariants}
-            className="mt-8 text-center text-zinc-500"
+            className="mt-8 text-center text-slate-500"
           >
             <div className="mb-2 flex items-center justify-center gap-2">
               <Clock className="size-4" />
@@ -146,8 +146,8 @@ export default function Contact() {
               className="group relative inline-block"
             >
               {/* Pulse glow */}
-              <span className="absolute inset-0 animate-pulse rounded-xl bg-emerald-500/30 blur-xl" />
-              <span className="relative inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-10 py-4 text-lg font-medium text-white transition-colors duration-300 hover:bg-emerald-400">
+              <span className="absolute inset-0 animate-pulse rounded-xl bg-sky-600/30 blur-xl" />
+              <span className="relative inline-flex items-center gap-2 rounded-xl bg-sky-600 px-10 py-4 text-lg font-medium text-white transition-colors duration-300 hover:bg-sky-500">
                 Start a WhatsApp Consultation →
               </span>
             </a>
