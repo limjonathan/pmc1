@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Calculator, Lightbulb, Users, Check } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Calculator, Lightbulb, Users } from "lucide-react";
 import { SERVICES } from "../lib/constants";
 import {
   useScrollReveal,
@@ -14,6 +15,7 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export default function Services() {
+  const { t } = useTranslation();
   const [ref, controls] = useScrollReveal();
 
   return (
@@ -29,17 +31,17 @@ export default function Services() {
         className="mx-auto max-w-7xl px-6 lg:px-8"
       >
         {/* Section header */}
-        <motion.div variants={revealVariants} className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-sky-700">
-            OUR SERVICES
-          </p>
-          <h2 className="mt-4 text-3xl font-bold text-slate-900 lg:text-5xl font-display">
-            From Ledger to Strategy
-          </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            Indonesia can be a challenging place to do business. At PMC, our services are designed to support your business from inception through to exit and everything in between.
-          </p>
-        </motion.div>
+        <div className="max-w-2xl">
+          <motion.p variants={revealVariants} className="text-sm font-semibold uppercase tracking-widest text-sky-700">
+            {t("services.label")}
+          </motion.p>
+          <motion.h2 variants={revealVariants} className="mt-4 text-3xl font-bold text-slate-900 lg:text-5xl font-display">
+            {t("services.heading")}
+          </motion.h2>
+          <motion.p variants={revealVariants} className="mt-4 text-lg text-slate-600">
+            {t("services.subheading")}
+          </motion.p>
+        </div>
 
         {/* Service cards grid */}
         <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -70,7 +72,7 @@ export default function Services() {
 
                 {/* Category title */}
                 <h3 className="mt-6 text-xl font-semibold text-slate-900">
-                  {service.category}
+                  {t(`services.categories.${service.category.split(" ")[0].toLowerCase()}`)}
                 </h3>
 
                 {/* Items list */}
@@ -80,8 +82,8 @@ export default function Services() {
                       key={item}
                       className="flex items-start gap-3 text-sm text-slate-600"
                     >
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-sky-700" />
-                      <span>{item}</span>
+                      <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
+                      <span>{t(`services.items.${item}`)}</span>
                     </li>
                   ))}
                 </ul>

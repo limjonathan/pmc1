@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { COMPANY, CONTACT, STATS } from "../lib/constants";
+import { useTranslation } from "react-i18next";
+import { CONTACT, STATS } from "../lib/constants";
 import {
   useScrollReveal,
   revealVariants,
@@ -31,13 +32,8 @@ function StatItem({
 }
 
 export default function Hero() {
+  const { t } = useTranslation();
   const [sectionRef, controls] = useScrollReveal({ threshold: 0.1 });
-
-  const tagline = COMPANY.tagline;
-  const highlightPhrase = "Financial Clarity";
-  const splitIndex = tagline.indexOf(highlightPhrase);
-  const beforeHighlight = tagline.slice(0, splitIndex);
-  const highlight = tagline.slice(splitIndex);
 
   return (
     <section
@@ -71,7 +67,7 @@ export default function Hero() {
         {/* Badge */}
         <motion.div variants={revealVariants}>
           <span className="inline-block rounded-full border border-slate-300 bg-white/50 backdrop-blur-sm px-4 py-1.5 text-sm text-slate-600">
-            Surabaya, Indonesia · Est. 1990
+            {t("hero.badge")}
           </span>
         </motion.div>
 
@@ -81,9 +77,9 @@ export default function Hero() {
           className="mx-auto mt-8 max-w-4xl text-5xl font-bold tracking-tight text-slate-900 lg:text-7xl"
           style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
         >
-          {beforeHighlight}
+          {t("hero.titleBefore")}
           <span className="gradient-text">
-            {highlight}
+            {t("hero.titleHighlight")}
           </span>
         </motion.h1>
 
@@ -92,7 +88,7 @@ export default function Hero() {
           variants={revealVariants}
           className="mx-auto mt-6 max-w-2xl text-lg text-slate-600 lg:text-xl"
         >
-          {COMPANY.subtitle}
+          {t("hero.subtitle")}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -107,14 +103,14 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="rounded-xl bg-sky-600 px-8 py-4 font-medium text-white shadow-lg shadow-sky-600/20 transition-all hover:bg-sky-500 hover:-translate-y-1"
           >
-            Schedule a Consultation
+            {t("hero.schedule")}
           </a>
           <a
             id="hero-cta-secondary"
             href="#services"
             className="rounded-xl border border-slate-300 bg-white/50 backdrop-blur-sm px-8 py-4 text-slate-700 transition-all hover:border-slate-400 hover:bg-white hover:text-slate-900 hover:-translate-y-1 shadow-sm"
           >
-            Explore Services
+            {t("hero.explore")}
           </a>
         </motion.div>
 
@@ -123,15 +119,23 @@ export default function Hero() {
           variants={revealVariants}
           className="mx-auto mt-20 flex max-w-lg items-center justify-center divide-x divide-slate-300"
         >
-          {STATS.map((stat) => (
-            <div key={stat.label} className="flex-1 px-6">
-              <StatItem
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-              />
-            </div>
-          ))}
+          {STATS.map((stat) => {
+            const statKeyMap: Record<string, string> = {
+              "Happy Clients": "clients",
+              "Our Project": "projects",
+              "Team Members": "team",
+              "Years of Experiences": "years"
+            };
+            return (
+              <div key={stat.label} className="flex-1 px-6">
+                <StatItem
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  label={t(`hero.stats.${statKeyMap[stat.label]}`)}
+                />
+              </div>
+            );
+          })}
         </motion.div>
       </motion.div>
     </section>

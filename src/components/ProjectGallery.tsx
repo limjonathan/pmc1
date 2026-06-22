@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { PROJECTS } from "../lib/constants";
 import {
   useScrollReveal,
@@ -7,7 +8,8 @@ import {
 } from "../hooks/useScrollReveal";
 
 export default function ProjectGallery() {
-  const [ref, controls] = useScrollReveal();
+  const { t } = useTranslation();
+  const [ref, controls] = useScrollReveal({ threshold: 0.1 });
 
   return (
     <section id="projects" className="bg-white py-24 lg:py-32">
@@ -18,21 +20,20 @@ export default function ProjectGallery() {
           initial="hidden"
           animate={controls}
         >
-          {/* Label */}
-          <motion.p
-            variants={revealVariants}
-            className="text-center text-sm font-semibold uppercase tracking-widest text-sky-700"
-          >
-            Project Gallery
-          </motion.p>
-
-          {/* Heading */}
-          <motion.h2
-            variants={revealVariants}
-            className="mt-4 text-center text-3xl font-bold text-slate-900 lg:text-5xl"
-          >
-            Our portfolio consists of clients in the following industries.
-          </motion.h2>
+          <div className="mx-auto max-w-2xl text-center">
+            <motion.p
+              variants={revealVariants}
+              className="text-sm font-semibold uppercase tracking-widest text-sky-700"
+            >
+              {t("projects.label")}
+            </motion.p>
+            <motion.h2
+              variants={revealVariants}
+              className="mt-4 text-3xl font-bold text-slate-900 lg:text-5xl font-display"
+            >
+              {t("projects.heading")}
+            </motion.h2>
+          </div>
 
           {/* Project Grid */}
           <motion.div
@@ -57,9 +58,9 @@ export default function ProjectGallery() {
                 </div>
 
                 {/* Content */}
-                <div className="absolute bottom-0 inset-x-0 p-6">
-                  <h3 className="font-semibold text-white text-lg">
-                    {project.name}
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {t(`projects.industries.${project.name}`)}
                   </h3>
                 </div>
               </motion.article>

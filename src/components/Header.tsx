@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, type Variants } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, Globe } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { NAV_LINKS, CONTACT } from "../lib/constants";
 import logoWide from "../assets/images/logo-wide.png";
 
@@ -25,8 +26,13 @@ const overlayVariants = {
 };
 
 export default function Header() {
+  const { t, i18n } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
+
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language.startsWith("id") ? "en" : "id");
+  };
   const { scrollY } = useScroll();
 
   const headerShadow = useTransform(
@@ -113,7 +119,7 @@ export default function Header() {
                     : "text-slate-600 hover:text-sky-700"
                 }`}
               >
-                {link.label}
+                {t(`nav.${link.label.toLowerCase()}`)}
                 {/* Underline indicator */}
                 <span
                   className={`absolute bottom-0 left-1/2 h-px -translate-x-1/2 bg-sky-700 transition-all duration-300 ${
@@ -129,6 +135,16 @@ export default function Header() {
 
         {/* Right side: CTA + Hamburger */}
         <div className="flex items-center gap-3">
+          {/* Language Toggle */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-sky-700"
+            aria-label="Toggle language"
+          >
+            <Globe className="h-4 w-4" />
+            {i18n.language.startsWith("id") ? "ID" : "EN"}
+          </button>
+
           {/* WhatsApp CTA */}
           <a
             id="header-cta"
@@ -138,7 +154,7 @@ export default function Header() {
             className="hidden items-center gap-2 rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-500 hover:shadow-lg hover:shadow-sky-500/20 lg:inline-flex"
           >
             <MessageCircle className="h-4 w-4" />
-            Get in Touch
+            {t("header.getInTouch")}
           </a>
 
           {/* Mobile hamburger */}
@@ -197,7 +213,7 @@ export default function Header() {
                       : "text-slate-700 hover:text-sky-700"
                   }`}
                 >
-                  {link.label}
+                  {t(`nav.${link.label.toLowerCase()}`)}
                 </motion.a>
               ))}
 
@@ -215,7 +231,7 @@ export default function Header() {
                 className="mt-4 inline-flex items-center gap-2 rounded-full bg-sky-600 px-8 py-3 text-base font-semibold text-white transition-all duration-200 hover:bg-sky-500 hover:shadow-lg hover:shadow-sky-500/20"
               >
                 <MessageCircle className="h-5 w-5" />
-                Get in Touch
+                {t("header.getInTouch")}
               </motion.a>
             </nav>
           </motion.div>

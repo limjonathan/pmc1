@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { CONTACT } from "../lib/constants";
 import {
@@ -7,41 +8,9 @@ import {
   staggerContainer,
 } from "../hooks/useScrollReveal";
 
-const fullAddress = `${CONTACT.address.line1}, ${CONTACT.address.line2}, ${CONTACT.address.city} ${CONTACT.address.postalCode}, ${CONTACT.address.country}`;
-
-const contactCards = [
-  {
-    id: "contact-phone",
-    icon: Phone,
-    title: "Phone",
-    value: CONTACT.phone,
-    href: CONTACT.phoneHref,
-  },
-  {
-    id: "contact-whatsapp",
-    icon: MessageCircle,
-    title: "WhatsApp",
-    value: CONTACT.whatsapp,
-    href: CONTACT.whatsappHref,
-  },
-  {
-    id: "contact-email",
-    icon: Mail,
-    title: "Email",
-    value: CONTACT.email,
-    href: CONTACT.emailHref,
-  },
-  {
-    id: "contact-location",
-    icon: MapPin,
-    title: "Office",
-    value: fullAddress,
-    href: CONTACT.mapsUrl,
-  },
-] as const;
-
 export default function Contact() {
-  const [ref, controls] = useScrollReveal();
+  const { t } = useTranslation();
+  const [ref, controls] = useScrollReveal({ threshold: 0.1 });
 
   return (
     <section
@@ -55,102 +24,105 @@ export default function Contact() {
           initial="hidden"
           animate={controls}
         >
-          {/* Label */}
-          <motion.p
-            variants={revealVariants}
-            className="text-center text-sm font-semibold uppercase tracking-widest text-sky-700"
-          >
-            Get in Touch
-          </motion.p>
+          <div className="mx-auto max-w-2xl text-center">
+            <motion.p
+              variants={revealVariants}
+              className="text-sm font-semibold uppercase tracking-widest text-sky-400"
+            >
+              {t("contact.label")}
+            </motion.p>
+            <motion.h2
+              variants={revealVariants}
+              className="mt-4 text-3xl font-bold text-slate-900 lg:text-5xl font-display"
+            >
+              {t("contact.heading")}
+            </motion.h2>
+            <motion.p
+              variants={revealVariants}
+              className="mt-4 text-lg text-slate-600"
+            >
+              {t("contact.subheading")}
+            </motion.p>
+          </div>
 
-          {/* Heading */}
-          <motion.h2
-            variants={revealVariants}
-            className="mt-4 text-center text-3xl font-bold text-slate-900 lg:text-5xl"
-          >
-            Let&apos;s Build Your Financial Infrastructure
-          </motion.h2>
-
-          {/* Subtitle */}
-          <motion.p
-            variants={revealVariants}
-            className="mt-4 text-center text-lg text-slate-600"
-          >
-            Ready to transform your financial systems? Reach out to our team in
-            Surabaya.
-          </motion.p>
-
-          {/* Contact Cards Grid */}
           <motion.div
             variants={staggerContainer}
             className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2"
           >
-            {contactCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                <motion.a
-                  key={card.id}
-                  id={card.id}
-                  href={card.href}
-                  target={card.id === "contact-location" ? "_blank" : undefined}
-                  rel={
-                    card.id === "contact-location"
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  variants={revealVariants}
-                  className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-500/40 hover:bg-slate-50 hover:shadow-md hover:-translate-y-1"
-                >
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-sky-600/10">
-                    <Icon className="size-5 text-sky-700" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-slate-600">
-                      {card.title}
-                    </p>
-                    <p className="mt-1 font-medium text-slate-900">{card.value}</p>
-                  </div>
-                </motion.a>
-              );
-            })}
-          </motion.div>
+            {/* Phone */}
+            <motion.div variants={revealVariants} className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl bg-sky-500/10 p-3 text-sky-600">
+                <Phone className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-medium text-slate-600">Phone</h3>
+                <a href={`tel:${CONTACT.phone}`} className="mt-1 block text-lg font-semibold text-slate-900 hover:text-sky-600 transition-colors">
+                  {CONTACT.phone}
+                </a>
+              </div>
+            </motion.div>
 
-          {/* Office Hours */}
-          <motion.div
-            variants={revealVariants}
-            className="mt-8 text-center text-slate-500"
-          >
-            <div className="mb-2 flex items-center justify-center gap-2">
-              <Clock className="size-4" />
-              <span className="text-sm font-medium">Office Hours</span>
-            </div>
-            <div className="space-y-1 text-sm">
-              {CONTACT.hours.map((schedule) => (
-                <p key={schedule.days}>
-                  {schedule.days}: {schedule.time}
+            {/* WhatsApp */}
+            <motion.div variants={revealVariants} className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl bg-sky-500/10 p-3 text-sky-600">
+                <MessageCircle className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-medium text-slate-600">WhatsApp</h3>
+                <a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer" className="mt-1 block text-lg font-semibold text-slate-900 hover:text-sky-600 transition-colors">
+                  {t("contact.whatsapp")}
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Email */}
+            <motion.div variants={revealVariants} className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl bg-sky-500/10 p-3 text-sky-600">
+                <Mail className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-medium text-slate-600">Email</h3>
+                <a href={`mailto:${CONTACT.email}`} className="mt-1 block text-lg font-semibold text-slate-900 hover:text-sky-600 transition-colors">
+                  {CONTACT.email}
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Location */}
+            <motion.div variants={revealVariants} className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl bg-sky-500/10 p-3 text-sky-600">
+                <MapPin className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-medium text-slate-600">{t("contact.office")}</h3>
+                <a href={CONTACT.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-1 block text-lg font-semibold text-slate-900 hover:text-sky-600 transition-colors">
+                  {CONTACT.address.city}, {CONTACT.address.country}
+                </a>
+                <p className="mt-1 text-sm text-slate-500">
+                  {CONTACT.address.line1}, {CONTACT.address.line2}
                 </p>
-              ))}
-            </div>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* WhatsApp CTA */}
-          <motion.div
-            variants={revealVariants}
-            className="mt-12 text-center"
-          >
-            <a
-              id="contact-whatsapp-cta"
-              href={CONTACT.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-block"
-            >
-              {/* Pulse glow */}
-              <span className="absolute inset-0 animate-pulse rounded-xl bg-sky-600/30 blur-xl" />
-              <span className="relative inline-flex items-center gap-2 rounded-xl bg-sky-600 px-10 py-4 text-lg font-medium text-white transition-colors duration-300 hover:bg-sky-500">
-                Start a WhatsApp Consultation →
-              </span>
-            </a>
+          <motion.div variants={revealVariants} className="mt-12 text-center">
+            <div className="inline-flex items-center gap-2 text-slate-500">
+              <Clock className="h-4 w-4" />
+              <span>{t("contact.hours")}: {CONTACT.hours[0].time}</span>
+            </div>
+            
+            <div className="mt-8">
+              <a
+                href={CONTACT.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center gap-2 rounded-xl bg-sky-600 px-10 py-4 text-lg font-medium text-white transition-all hover:bg-sky-500 hover:-translate-y-1"
+              >
+                {t("contact.whatsapp")}
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+                <div className="absolute inset-0 -z-10 animate-pulse rounded-xl bg-sky-600/40 blur-xl transition-all group-hover:bg-sky-500/60" />
+              </a>
+            </div>
           </motion.div>
         </motion.div>
       </div>

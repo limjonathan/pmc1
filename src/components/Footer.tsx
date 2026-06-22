@@ -1,7 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { COMPANY, CONTACT, NAV_LINKS } from "../lib/constants";
 import logoWide from "../assets/images/logo-wide.png";
 
 export default function Footer() {
+  const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="border-t border-slate-200 bg-slate-50 py-12">
       <div className="mx-auto max-w-7xl px-6">
@@ -17,13 +21,14 @@ export default function Footer() {
 
           {/* Nav */}
           <nav className="flex flex-wrap items-center justify-center gap-6">
+            <h4 className="font-semibold text-slate-900">{t("footer.quickLinks")}</h4>
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 className="text-sm text-slate-500 transition-colors hover:text-slate-900"
               >
-                {link.label}
+                {t(`nav.${link.label.toLowerCase()}`)}
               </a>
             ))}
           </nav>
@@ -49,11 +54,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 lg:flex-row">
           <p className="text-xs text-slate-500">
-            &copy; {new Date().getFullYear()} {COMPANY.name}. All rights
-            reserved.
+            &copy; {currentYear} {COMPANY.name}. {t("footer.rights")}
           </p>
           <p className="text-xs text-slate-500">
-            Made in Surabaya 🇮🇩
+            {t("footer.madeIn")}
           </p>
         </div>
       </div>
