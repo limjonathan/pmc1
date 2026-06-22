@@ -12,7 +12,7 @@ export default function ProjectGallery() {
   const [ref, controls] = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <section id="projects" className="bg-white py-24 lg:py-32">
+    <section id="projects" className="bg-white dark:bg-white py-24 lg:py-32 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -23,13 +23,13 @@ export default function ProjectGallery() {
           <div className="mx-auto max-w-2xl text-center">
             <motion.p
               variants={revealVariants}
-              className="text-sm font-semibold uppercase tracking-widest text-sky-700"
+              className="text-sm font-semibold uppercase tracking-widest text-sky-700 dark:text-[#ffae11] transition-colors duration-300"
             >
               {t("projects.label")}
             </motion.p>
             <motion.h2
               variants={revealVariants}
-              className="mt-4 text-3xl font-bold text-slate-900 lg:text-5xl font-display"
+              className="mt-4 text-3xl font-bold text-slate-900 dark:text-[#28395E] lg:text-5xl font-display transition-colors duration-300"
             >
               {t("projects.heading")}
             </motion.h2>
@@ -44,7 +44,7 @@ export default function ProjectGallery() {
               <motion.article
                 key={project.name}
                 variants={revealVariants}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10 hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 dark:bg-slate-50 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10 dark:hover:shadow-[#ffae11]/10 hover:-translate-y-1"
               >
                 {/* Image */}
                 <div className="relative aspect-video w-full overflow-hidden">
@@ -59,7 +59,7 @@ export default function ProjectGallery() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-slate-900">
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-[#28395E] transition-colors duration-300">
                     {t(`projects.industries.${project.name}`)}
                   </h3>
                 </div>

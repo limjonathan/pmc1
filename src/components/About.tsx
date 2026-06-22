@@ -7,7 +7,8 @@ import {
   revealVariants,
   staggerContainer,
 } from "../hooks/useScrollReveal";
-import aboutTeam from "../assets/images/about-team.jpg";
+import aboutParallax from "../assets/images/about-parallax.jpg";
+import ParallaxImage from "./ParallaxImage";
 
 const iconMap = {
   Shield,
@@ -21,7 +22,7 @@ export default function About() {
   const [ref, controls] = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <section id="about" className="bg-white py-24 lg:py-32">
+    <section id="about" className="bg-white dark:bg-white transition-colors duration-300 py-24 lg:py-32">
       <motion.div
         ref={ref}
         initial="hidden"
@@ -33,16 +34,17 @@ export default function About() {
         <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left column — editorial text & image */}
           <motion.div variants={staggerContainer} className="max-w-xl">
-            <motion.div variants={revealVariants}>
-              <img 
-                src={aboutTeam} 
+            <motion.div variants={revealVariants} className="mb-8 rounded-2xl overflow-hidden shadow-md aspect-video">
+              <ParallaxImage 
+                src={aboutParallax} 
                 alt="PMC Team" 
-                className="w-full rounded-2xl object-cover shadow-md aspect-video mb-8"
+                className="w-full h-full"
+                offset={40}
               />
             </motion.div>
             <motion.span
               variants={revealVariants}
-              className="text-sm font-semibold tracking-widest text-sky-600"
+              className="text-sm font-semibold tracking-widest text-sky-600 dark:text-[#ffae11] transition-colors duration-300"
             >
               {t("about.label")}
             </motion.span>
@@ -77,9 +79,9 @@ export default function About() {
                 <motion.div
                   key={value.title}
                   variants={revealVariants}
-                  className="rounded-2xl border border-slate-200 bg-white/50 p-6 transition-all duration-300 hover:border-sky-500/30 hover:bg-white hover:shadow-lg hover:shadow-sky-500/5"
+                  className="rounded-2xl border border-slate-200 dark:border-slate-200 bg-white/50 p-6 transition-all duration-300 hover:border-sky-500/30 dark:hover:border-[#28395E]/30 hover:bg-white hover:shadow-lg hover:shadow-sky-500/5 dark:hover:shadow-[#28395E]/5"
                 >
-                  <div className="mb-4 inline-flex rounded-xl bg-sky-50 p-3 text-sky-600">
+                  <div className="mb-4 inline-flex rounded-xl bg-sky-50 dark:bg-[#28395E]/5 p-3 text-sky-600 dark:text-[#28395E] transition-colors duration-300">
                     {(() => {
                       const Icon = iconMap[value.icon as keyof typeof iconMap];
                       return <Icon className="h-7 w-7" />;

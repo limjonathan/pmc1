@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, type Variants } from "framer-motion";
-import { Menu, X, MessageCircle, Globe } from "lucide-react";
+import { Menu, X, MessageCircle, Globe, Palette } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { NAV_LINKS, CONTACT } from "../lib/constants";
 import logoWide from "../assets/images/logo-wide.png";
+import { useTheme } from "../contexts/ThemeContext";
 
 const navItemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -29,9 +30,14 @@ export default function Header() {
   const { t, i18n } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
+  const { theme, setTheme } = useTheme();
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language.startsWith("id") ? "en" : "id");
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === "modern" ? "original" : "modern");
   };
   const { scrollY } = useScroll();
 
@@ -88,7 +94,7 @@ export default function Header() {
     <>
       <motion.header
         id="site-header"
-        className="fixed top-0 right-0 left-0 z-40 border-b border-slate-200/50 bg-white/80 backdrop-blur-xl"
+        className="fixed top-0 right-0 left-0 z-40 border-b border-slate-200/50 dark:border-[#28395E]/20 bg-white/80 dark:bg-white/90 backdrop-blur-xl transition-colors duration-300"
         style={{ boxShadow: headerShadow }}
       >
       <motion.nav
@@ -115,19 +121,19 @@ export default function Header() {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                   activeSection === link.href
-                    ? "text-sky-700"
-                    : "text-slate-600 hover:text-sky-700"
+                    ? "text-sky-700 dark:text-[#28395E]"
+                    : "text-slate-600 dark:text-slate-700 hover:text-sky-700 dark:hover:text-[#28395E]"
                 }`}
               >
                 {t(`nav.${link.label.toLowerCase()}`)}
                 {/* Underline indicator */}
                 <span
-                  className={`absolute bottom-0 left-1/2 h-px -translate-x-1/2 bg-sky-700 transition-all duration-300 ${
+                  className={`absolute bottom-0 left-1/2 h-px -translate-x-1/2 bg-sky-700 dark:bg-[#28395E] transition-all duration-300 ${
                     activeSection === link.href ? "w-4/5" : "w-0"
                   }`}
                 />
                 {/* Hover underline */}
-                <span className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-sky-700/50 transition-all duration-300 group-hover:w-4/5 hover:w-4/5" />
+                <span className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-sky-700/50 dark:bg-[#28395E]/50 transition-all duration-300 group-hover:w-4/5 hover:w-4/5" />
               </a>
             </li>
           ))}
@@ -135,10 +141,20 @@ export default function Header() {
 
         {/* Right side: CTA + Hamburger */}
         <div className="flex items-center gap-3">
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center rounded-full border border-slate-300 dark:border-[#28395E]/30 p-2 text-slate-600 dark:text-[#28395E] transition-colors hover:bg-slate-50 dark:hover:bg-[#28395E]/5"
+            aria-label="Toggle theme"
+            title={theme === "modern" ? "Switch to Original Theme" : "Switch to Modern Theme"}
+          >
+            <Palette className="h-4 w-4" />
+          </button>
+
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-sky-700"
+            className="flex items-center gap-2 rounded-full border border-slate-300 dark:border-[#28395E]/30 px-3 py-1.5 text-sm font-medium text-slate-600 dark:text-[#28395E] transition-colors hover:bg-slate-50 dark:hover:bg-[#28395E]/5 hover:text-sky-700 dark:hover:text-[#28395E]"
             aria-label="Toggle language"
           >
             <Globe className="h-4 w-4" />
@@ -151,7 +167,7 @@ export default function Header() {
             href={CONTACT.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-500 hover:shadow-lg hover:shadow-sky-500/20 lg:inline-flex"
+            className="hidden items-center gap-2 rounded-full bg-sky-600 dark:bg-[#ffae11] px-5 py-2 text-sm font-semibold text-white dark:text-[#28395E] transition-all duration-200 hover:bg-sky-500 dark:hover:bg-[#e0990f] hover:shadow-lg hover:shadow-sky-500/20 lg:inline-flex"
           >
             <MessageCircle className="h-4 w-4" />
             {t("header.getInTouch")}
