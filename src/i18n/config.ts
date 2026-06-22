@@ -33,7 +33,7 @@ const resources = {
         label: "About PMC",
         heading: "Supporting Businesses From Inception Through to Exit",
         p1: "We are an expert consulting firm based in Surabaya specializing in management accounting. PMC works across a broad range of business disciplines to address critical issues, helping clients improve key organizational components, leverage technology, and strengthen their market position. Our team of service professionals and industry-specific experts delivers solutions tailored to each client's unique challenges.",
-        p2: "With over three decades of deep expertise in management accounting and financial system design, we provide the strategic clarity that Indonesian businesses need to compete and grow.",
+        p2: "With over three decades of deep expertise in management accounting and financial system design, we are the premier management consulting and accounting firm in Surabaya, providing the strategic clarity that Indonesian businesses need to compete and grow.",
         values: {
           integrity: {
             title: "Integrity",
@@ -163,7 +163,7 @@ const resources = {
         label: "Tentang PMC",
         heading: "Mendukung Bisnis Dari Awal Hingga Akhir",
         p1: "Kami adalah perusahaan konsultan ahli yang berbasis di Surabaya yang mengkhususkan diri dalam akuntansi manajemen. PMC bekerja di berbagai disiplin bisnis untuk mengatasi masalah kritis, membantu klien meningkatkan komponen organisasi utama, memanfaatkan teknologi, dan memperkuat posisi pasar mereka. Tim profesional kami dan pakar industri khusus memberikan solusi yang disesuaikan dengan tantangan unik setiap klien.",
-        p2: "Dengan pengalaman lebih dari tiga dekade dalam akuntansi manajemen dan desain sistem keuangan, kami memberikan kejelasan strategis yang dibutuhkan bisnis di Indonesia untuk bersaing dan berkembang.",
+        p2: "Dengan pengalaman lebih dari tiga dekade dalam akuntansi manajemen dan desain sistem keuangan, kami adalah Konsultan Manajemen Surabaya dan penyedia Jasa Akuntansi Indonesia terkemuka yang memberikan kejelasan strategis yang dibutuhkan bisnis untuk bersaing dan berkembang.",
         values: {
           integrity: {
             title: "Integritas",
