@@ -155,6 +155,7 @@ export default function Header() {
             )}
           </button>
         </div>
+      </motion.nav>
       </motion.header>
 
       {/* Mobile Overlay */}
