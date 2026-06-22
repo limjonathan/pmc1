@@ -83,7 +83,10 @@ export default function Services() {
                       className="flex items-start gap-3 text-sm text-slate-600"
                     >
                       <span className="mr-3 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
-                      <span>{t(`services.items.${item}`)}</span>
+                      <span className="flex flex-col">
+                        <span className="font-medium text-slate-800">{t(`services.items.${item}.title`)}</span>
+                        <span className="mt-1 text-slate-500 leading-relaxed">{t(`services.items.${item}.desc`)}</span>
+                      </span>
                     </li>
                   ))}
                 </ul>

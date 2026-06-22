@@ -50,7 +50,7 @@ export default function ProjectGallery() {
                 <div className="relative aspect-video w-full overflow-hidden">
                   <img
                     src={project.image}
-                    alt={project.name}
+                    alt={`Management Consulting for the ${project.name} Industry in Surabaya, Indonesia`}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Subtle gradient overlay */}

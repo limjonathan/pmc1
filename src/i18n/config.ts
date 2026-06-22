@@ -64,15 +64,42 @@ const resources = {
           consulting: "Consulting",
         },
         items: {
-          "Outsourcing Accounting Service": "Outsourcing Accounting Service",
-          "Monthly Accounting Supervisory": "Monthly Accounting Supervisory",
-          "Financial Statement Compilation": "Financial Statement Compilation",
-          "Financial Statement Review": "Financial Statement Review",
-          "Financial Statement Analysis": "Financial Statement Analysis",
-          "Accounting & Management Information System Design": "Accounting & Management Information System Design",
-          "Accounting System Check Up": "Accounting System Check Up",
-          "Management Consultation": "Management Consultation",
-          "Business Planning": "Business Planning"
+          "Outsourcing Accounting Service": {
+            title: "Outsourcing Accounting Service",
+            desc: "Comprehensive accounting outsourcing solutions tailored to your business, ensuring accurate and timely financial reporting."
+          },
+          "Monthly Accounting Supervisory": {
+            title: "Monthly Accounting Supervisory",
+            desc: "Expert monthly oversight of your accounting processes to maintain financial integrity, compliance, and operational efficiency."
+          },
+          "Financial Statement Compilation": {
+            title: "Financial Statement Compilation",
+            desc: "Professional compilation of financial statements adhering to Indonesian accounting standards (PSAK) for accurate corporate representation."
+          },
+          "Financial Statement Review": {
+            title: "Financial Statement Review",
+            desc: "Thorough analytical reviews of financial statements to identify discrepancies, ensuring transparency and stakeholder confidence."
+          },
+          "Financial Statement Analysis": {
+            title: "Financial Statement Analysis",
+            desc: "Deep dive financial analysis to uncover actionable insights, assess profitability, and guide strategic business decisions."
+          },
+          "Accounting & Management Information System Design": {
+            title: "Accounting & Management Information System Design",
+            desc: "Custom design and implementation of robust management information systems (MIS) to streamline financial workflows."
+          },
+          "Accounting System Check Up": {
+            title: "Accounting System Check Up",
+            desc: "Comprehensive audits of existing accounting systems to identify bottlenecks, mitigate risks, and optimize software infrastructure."
+          },
+          "Management Consultation": {
+            title: "Management Consultation",
+            desc: "Strategic management consulting focused on organizational efficiency, operational growth, and long-term financial clarity."
+          },
+          "Business Planning": {
+            title: "Business Planning",
+            desc: "Data-driven business planning, budgeting, and forecasting services to help navigate the Indonesian market successfully."
+          }
         }
       },
       projects: {
@@ -167,15 +194,42 @@ const resources = {
           consulting: "Konsultasi",
         },
         items: {
-          "Outsourcing Accounting Service": "Layanan Akuntansi Outsourcing",
-          "Monthly Accounting Supervisory": "Supervisi Akuntansi Bulanan",
-          "Financial Statement Compilation": "Kompilasi Laporan Keuangan",
-          "Financial Statement Review": "Tinjauan Laporan Keuangan",
-          "Financial Statement Analysis": "Analisis Laporan Keuangan",
-          "Accounting & Management Information System Design": "Desain Sistem Informasi Akuntansi & Manajemen",
-          "Accounting System Check Up": "Pemeriksaan Sistem Akuntansi",
-          "Management Consultation": "Konsultasi Manajemen",
-          "Business Planning": "Perencanaan Bisnis"
+          "Outsourcing Accounting Service": {
+            title: "Layanan Akuntansi Outsourcing",
+            desc: "Solusi outsourcing akuntansi komprehensif yang disesuaikan untuk bisnis Anda, memastikan pelaporan keuangan yang akurat dan tepat waktu."
+          },
+          "Monthly Accounting Supervisory": {
+            title: "Supervisi Akuntansi Bulanan",
+            desc: "Pengawasan bulanan ahli atas proses akuntansi Anda untuk menjaga integritas keuangan, kepatuhan, dan efisiensi operasional."
+          },
+          "Financial Statement Compilation": {
+            title: "Kompilasi Laporan Keuangan",
+            desc: "Kompilasi laporan keuangan profesional yang mematuhi standar akuntansi Indonesia (PSAK) untuk representasi perusahaan yang akurat."
+          },
+          "Financial Statement Review": {
+            title: "Tinjauan Laporan Keuangan",
+            desc: "Tinjauan analitis menyeluruh atas laporan keuangan untuk mengidentifikasi perbedaan, memastikan transparansi dan kepercayaan pemangku kepentingan."
+          },
+          "Financial Statement Analysis": {
+            title: "Analisis Laporan Keuangan",
+            desc: "Analisis keuangan mendalam untuk mengungkap wawasan yang dapat ditindaklanjuti, menilai profitabilitas, dan memandu keputusan bisnis strategis."
+          },
+          "Accounting & Management Information System Design": {
+            title: "Desain Sistem Informasi Akuntansi & Manajemen",
+            desc: "Desain dan implementasi khusus sistem informasi manajemen (MIS) yang kuat untuk merampingkan alur kerja keuangan."
+          },
+          "Accounting System Check Up": {
+            title: "Pemeriksaan Sistem Akuntansi",
+            desc: "Audit komprehensif atas sistem akuntansi yang ada untuk mengidentifikasi hambatan, memitigasi risiko, dan mengoptimalkan infrastruktur perangkat lunak."
+          },
+          "Management Consultation": {
+            title: "Konsultasi Manajemen",
+            desc: "Konsultasi manajemen strategis yang berfokus pada efisiensi organisasi, pertumbuhan operasional, dan kejelasan keuangan jangka panjang."
+          },
+          "Business Planning": {
+            title: "Perencanaan Bisnis",
+            desc: "Layanan perencanaan bisnis, penganggaran, dan peramalan berbasis data untuk membantu menavigasi pasar Indonesia dengan sukses."
+          }
         }
       },
       projects: {
