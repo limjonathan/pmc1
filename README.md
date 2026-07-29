@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# PMC — Premier Management Consulting
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium consulting website for PMC Surabaya, Indonesia — light-dominant, editorial typography, bento grids, and rich CSS-only animations. Zero framework dependencies.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| | |
+|---|---|
+| **Hero entrance stagger** | Badge → heading → text → buttons cascade on load |
+| **Ambient glow pulse** | Gold glow breathes on a 6s cycle |
+| **Mouse parallax** | Hero elements shift opposite cursor on desktop |
+| **3D card tilt** | Service cards rotate toward cursor with depth |
+| **Reading progress bar** | Fixed gold bar tracks scroll position |
+| **Back to top** | Smooth-scroll button appears after 600px |
+| **Staggered scroll reveals** | Grid children animate in sequence via `IntersectionObserver` |
+| **Mobile menu stagger** | Nav links bounce in on open |
+| **Image carousel** | Cycling hero testimonials |
+| **Animated counters** | Stats count up when scrolled into view |
+| **Bilingual (EN/ID)** | i18n toggle with flag switcher |
+| **Zero JS deps** | Pure CSS + `IntersectionObserver` + mouse events |
 
-## React Compiler
+## 🚀 Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+python3 -m http.server 8080
+# then open http://localhost:8080
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+No build step required.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📁 Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+├── index.html         # Main site (standalone, open directly)
+├── assets/            # Images, icons, language flags
+│   ├── services/      # Service illustrations
+│   └── flags/         # EN / IDN flag icons
+├── .gitignore
+└── README.md
+```
+
+## 🎨 Design
+
+- **Palette:** `#ffffff` backgrounds, `#0f1a2e` dark sections, `#c8a84c` gold accent
+- **Typography:** Playfair Display (serif headlines) + Inter (body)
+- **Inspiration:** McKinsey, Bain, Deloitte, BCG — light-dominant premium consulting style
+
+## 📱 Live
+
+[https://limjonathan.github.io/pmc1](https://limjonathan.github.io/pmc1)
+
+## 📄 License
+
+MIT
